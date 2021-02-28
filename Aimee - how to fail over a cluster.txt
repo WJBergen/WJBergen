@@ -1,0 +1,10 @@
+go to a command prompt - type cmd
+
+in the dos command window type the below:
+
+cluster . group (shows where all services are located and exact names to be used below:
+
+cluster . group "cluster group" /move
+cluster . group "available storage" /move
+cluster . group "uphvdbndc037dtc" /move - dtc name is different on every server
+cluster . group "sql server (mssqlserver)" /move -- sql instance can be different

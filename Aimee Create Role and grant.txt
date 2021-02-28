@@ -1,0 +1,43 @@
+-- create custom database role
+CREATE ROLE UPHS_MPM_Pools
+
+-- grant EXECUTE permission
+--GRANT SELECT ON OBJECT::dbo.X_UPHS_MPM_Pools UPHS_CMPD_db_executor
+
+ GRANT SELECT ON OBJECT::dbo.X_UPHS_MPM_Pools to UPHS_MPM_Pools
+ GRANT INSERT ON OBJECT::dbo.X_UPHS_MPM_Pools to UPHS_MPM_Pools
+ GRANT UPDATE ON OBJECT::dbo.X_UPHS_MPM_Pools to UPHS_MPM_Pools
+ GRANT DELETE ON OBJECT::dbo.X_UPHS_MPM_Pools to UPHS_MPM_Pools
+ GRANT ALTER ON OBJECT::dbo.X_UPHS_MPM_Pools to UPHS_MPM_Pools
+
+
+DENY SELECT ON dbo.Employee (SSN, Salary) TO HR_Intern;
+
+uphsfp11\iso$
+
+7Et{W}2g
+7Et{W}2g
+
+
+
+q3038562
+
+
+create procedure dbo.UPHS_execwhsejob
+with execute as owner
+as
+exec msdb.dbo.sp_start_job @job_name = 'CORPAPPS import - WHSE'
+GO
+create procedure dbo.UPHS_execLAWSONjob
+with execute as owner
+as
+exec msdb.dbo.sp_start_job @job_name = 'CORPAPPS Import - Lawson'
+
+--exec corpapps_db.dbo.uphs_execwhsejob
+--exec corpapps_db.dbo.uphs_execLAWSONjob
+
+c: System 70 Gigs, 
+D: Apps 70 gigs								
+E:  Data 400 Gigs ,
+F: Backup 300 gigs								
+G: Log  100 gigs								
